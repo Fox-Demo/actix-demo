@@ -2,7 +2,13 @@ use actix_web::{get, post, web, App, HttpResponse, HttpServer, Responder};
 
 #[get("/")]
 async fn hello() -> impl Responder {
-    HttpResponse::Ok().body("Hello world!")
+    HttpResponse::Ok().content_type("text/html").body(
+        r#"
+            <title>GCD Calculator</title>
+            <p>Hello</p>
+            <button>Click</button>
+        "#,
+    )
 }
 
 #[post("/echo")]
